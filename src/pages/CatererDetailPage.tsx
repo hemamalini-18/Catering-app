@@ -206,7 +206,7 @@ const CatererDetailPage = () => {
                       </div>
                       <div className="text-right">
                         <div className="text-2xl font-bold text-primary-600">
-                          ${pkg.price}
+                          ₹{pkg.price.toLocaleString('en-IN')}
                           {pkg.pricePerPerson && <span className="text-sm text-gray-600">/person</span>}
                         </div>
                         {pkg.popular && (
@@ -292,7 +292,7 @@ const CatererDetailPage = () => {
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-600">Minimum Order</span>
-                <span className="font-semibold text-gray-900">${caterer.minimumOrder}</span>
+                <span className='font-semibold text-gray-900'>₹{caterer.minimumOrder.toLocaleString('en-IN')}</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-600">Experience</span>

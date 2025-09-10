@@ -144,7 +144,7 @@ const JobApplicationPage = () => {
               </div>
               <div className="flex items-center space-x-2 text-gray-600">
                 <DollarSign className="w-5 h-5 text-success-500" />
-                <span className="text-sm">${job.budget.min.toLocaleString()}</span>
+                <span className='text-sm'>₹{job.budget.min.toLocaleString('en-IN')}</span>
               </div>
             </div>
 
@@ -221,7 +221,7 @@ const JobApplicationPage = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Proposed Price ($)
+                    Proposed Price (₹)
                   </label>
                   <input
                     type="number"
@@ -301,11 +301,11 @@ const JobApplicationPage = () => {
             <div className="space-y-3">
               <div className="flex justify-between items-center">
                 <span className="text-sm text-gray-600">Minimum</span>
-                <span className="font-semibold text-success-600">${job.budget.min.toLocaleString()}</span>
+                <span className='font-semibold text-success-600'>₹{job.budget.min.toLocaleString('en-IN')}</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-sm text-gray-600">Maximum</span>
-                <span className="font-semibold text-success-600">${job.budget.max.toLocaleString()}</span>
+                <span className='font-semibold text-success-600'>₹{job.budget.max.toLocaleString('en-IN')}</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
                 <div 
@@ -366,7 +366,7 @@ const JobApplicationPage = () => {
                     </h4>
                     <div className="flex items-center justify-between text-xs text-gray-600">
                       <span>{similarJob.location}</span>
-                      <span>${similarJob.budget.min.toLocaleString()}</span>
+                      <span>₹{similarJob.budget.min.toLocaleString('en-IN')}</span>
                     </div>
                   </motion.div>
                 ))}

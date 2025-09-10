@@ -339,7 +339,7 @@ const CatererCard = ({ caterer }: { caterer: Caterer }) => {
               </div>
               <div className="flex items-center space-x-1">
                 <Users className="w-4 h-4" />
-                <span>Min ${caterer.minimumOrder}</span>
+                <span>Min ₹{caterer.minimumOrder.toLocaleString('en-IN')}</span>
               </div>
             </div>
             <motion.div

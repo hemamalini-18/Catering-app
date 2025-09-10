@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
@@ -16,6 +16,7 @@ import { mockUser } from '../data/mockData'
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isAuthed, setIsAuthed] = useState<boolean>(typeof window !== 'undefined' ? !!localStorage.getItem('token') : false)
   const location = useLocation()
 
   const navItems = [
@@ -26,6 +27,12 @@ const Navigation = () => {
   ]
 
   const isActive = (path: string) => location.pathname === path
+
+  useEffect(() => {
+    const onStorage = () => setIsAuthed(!!localStorage.getItem('token'))
+    window.addEventListener('storage', onStorage)
+    return () => window.removeEventListener('storage', onStorage)
+  }, [])
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-orange-100/30 shadow-elegant">
@@ -73,7 +80,7 @@ const Navigation = () => {
           <div className="flex items-center space-x-4">
             {/* Post Job Button */}
             <Link
-              to="/post-job"
+              to={isAuthed ? "/post-job" : "/login"}
               className="button-secondary hidden sm:flex items-center space-x-2"
             >
               <Plus className="w-5 h-5" />
@@ -90,19 +97,30 @@ const Navigation = () => {
               <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse"></span>
             </motion.button>
 
-            {/* User Avatar */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="hidden sm:block"
-            >
-              <Link to="/profile">
-                <img
-                  src={mockUser.avatar}
-                  alt={mockUser.name}
-                  className="w-12 h-12 rounded-full border-3 border-orange-200 hover:border-orange-400 transition-colors shadow-lg"
-                />
-              </Link>
-            </motion.div>
+            {/* Auth actions */}
+            {!isAuthed ? (
+              <div className="hidden sm:flex items-center space-x-2">
+                <Link to="/login" className="p-3 bg-white/60 rounded-full hover:bg-orange-100 text-gray-700 hover:text-orange-600 transition-colors">
+                  <User className="w-6 h-6" />
+                </Link>
+                <Link to="/login" className="px-4 py-2 rounded-full bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg shadow-orange-300/30 hover:opacity-95 transition">
+                  Sign up
+                </Link>
+              </div>
+            ) : (
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="hidden sm:block"
+              >
+                <Link to="/profile">
+                  <img
+                    src={mockUser.avatar}
+                    alt={mockUser.name}
+                    className="w-12 h-12 rounded-full border-3 border-orange-200 hover:border-orange-400 transition-colors shadow-lg"
+                  />
+                </Link>
+              </motion.div>
+            )}
 
             {/* Mobile menu button */}
             <button
@@ -150,25 +168,43 @@ const Navigation = () => {
               })}
               
               <Link
-                to="/post-job"
+                to={isAuthed ? "/post-job" : "/login"}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="button-secondary flex items-center justify-center space-x-2 w-full"
               >
                 <Plus className="w-5 h-5" />
                 <span>Post Job</span>
               </Link>
-
-              <div className="flex items-center space-x-4 p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl border border-orange-100">
-                <img
-                  src={mockUser.avatar}
-                  alt={mockUser.name}
-                  className="w-12 h-12 rounded-full border-2 border-orange-200"
-                />
-                <div>
-                  <p className="font-medium text-gray-800">{mockUser.name}</p>
-                  <p className="text-sm text-gray-600">{mockUser.email}</p>
+              {!isAuthed ? (
+                <div className="flex items-center justify-between space-x-3">
+                  <Link
+                    to="/login"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex-1 px-4 py-3 rounded-2xl bg-white/70 text-gray-800 text-center"
+                  >
+                    Sign in
+                  </Link>
+                  <Link
+                    to="/login"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex-1 px-4 py-3 rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 text-white text-center shadow-lg shadow-orange-300/30"
+                  >
+                    Sign up
+                  </Link>
                 </div>
-              </div>
+              ) : (
+                <div className="flex items-center space-x-4 p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl border border-orange-100">
+                  <img
+                    src={mockUser.avatar}
+                    alt={mockUser.name}
+                    className="w-12 h-12 rounded-full border-2 border-orange-200"
+                  />
+                  <div>
+                    <p className="font-medium text-gray-800">{mockUser.name}</p>
+                    <p className="text-sm text-gray-600">{mockUser.email}</p>
+                  </div>
+                </div>
+              )}
             </div>
           </motion.div>
         )}

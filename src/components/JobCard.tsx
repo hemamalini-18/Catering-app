@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { MapPin, Calendar, Users, DollarSign, Star, Clock, ArrowRight } from 'lucide-react'
+import { MapPin, Calendar, Users, Star, Clock, ArrowRight } from 'lucide-react'
 import { Job } from '../types'
 import { format } from 'date-fns'
 
@@ -67,9 +67,9 @@ const JobCard = ({ job }: JobCardProps) => {
               <span className="text-sm text-gray-700">{job.guestCount} guests</span>
             </div>
             <div className="flex items-center space-x-2">
-              <DollarSign className="w-5 h-5 text-green-500" />
+              <span className="w-5 h-5 text-green-500 text-lg font-bold">₹</span>
               <span className="text-sm text-gray-700">
-                ${job.budget.min.toLocaleString()}-${job.budget.max.toLocaleString()}
+                {job.budget.min.toLocaleString('en-IN')}-{job.budget.max.toLocaleString('en-IN')}
               </span>
             </div>
           </div>

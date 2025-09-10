@@ -383,7 +383,7 @@ const BookingPage = () => {
                       </div>
                       <div>
                         <p className="text-sm text-gray-600">Total Price</p>
-                        <p className="font-bold text-2xl text-primary-600">${totalPrice.toLocaleString()}</p>
+                        <p className='font-bold text-2xl text-primary-600'>₹{totalPrice.toLocaleString('en-IN')}</p>
                       </div>
                     </div>
                   </div>
@@ -464,7 +464,7 @@ const BookingPage = () => {
                 <h4 className="font-medium text-gray-900 mb-2">{selectedPackage.name}</h4>
                 <p className="text-sm text-gray-600 mb-3">{selectedPackage.description}</p>
                 <div className="text-2xl font-bold text-primary-600 mb-2">
-                  ${selectedPackage.price}
+                  ₹{selectedPackage.price.toLocaleString('en-IN')}
                   {selectedPackage.pricePerPerson && <span className="text-sm text-gray-600">/person</span>}
                 </div>
               </div>
@@ -531,18 +531,18 @@ const BookingPage = () => {
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600">Package Price</span>
-                  <span className="font-medium">${selectedPackage.price}</span>
+                  <span className='font-medium'>₹{selectedPackage.price.toLocaleString('en-IN')}</span>
                 </div>
                 {selectedPackage.pricePerPerson && (
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">× {bookingData.guestCount} guests</span>
-                    <span className="font-medium">${(selectedPackage.price * bookingData.guestCount).toLocaleString()}</span>
+                    <span className='font-medium'>₹{(selectedPackage.price * bookingData.guestCount).toLocaleString('en-IN')}</span>
                   </div>
                 )}
                 <div className="border-t border-white/30 pt-3">
                   <div className="flex justify-between items-center">
                     <span className="font-semibold text-gray-900">Total</span>
-                    <span className="font-bold text-xl text-primary-600">${totalPrice.toLocaleString()}</span>
+                    <span className='font-bold text-xl text-primary-600'>₹{totalPrice.toLocaleString('en-IN')}</span>
                   </div>
                 </div>
               </div>

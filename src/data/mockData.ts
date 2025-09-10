@@ -9,7 +9,7 @@ export const mockJobs: Job[] = [
     date: '2024-06-15',
     time: '18:00',
     location: 'Downtown Grand Hotel, New York',
-    budget: { min: 8000, max: 12000 },
+    budget: { min: 660000, max: 990000 },
     guestCount: 150,
     requirements: ['Vegetarian options', 'Gluten-free options', 'Professional staff', 'Table service'],
     client: {
@@ -29,7 +29,7 @@ export const mockJobs: Job[] = [
     date: '2024-12-20',
     time: '19:00',
     location: 'Tech Hub Conference Center, San Francisco',
-    budget: { min: 5000, max: 8000 },
+    budget: { min: 415000, max: 664000 },
     guestCount: 80,
     requirements: ['Cocktail service', 'Passed appetizers', 'Open bar', 'Professional presentation'],
     client: {
@@ -49,7 +49,7 @@ export const mockJobs: Job[] = [
     date: '2024-04-12',
     time: '16:00',
     location: 'Community Center, Austin',
-    budget: { min: 2000, max: 3500 },
+    budget: { min: 166000, max: 290500 },
     guestCount: 50,
     requirements: ['Colorful presentation', 'Finger foods', 'Desserts', 'Fun atmosphere'],
     client: {
@@ -69,7 +69,7 @@ export const mockJobs: Job[] = [
     date: '2024-05-18',
     time: '19:30',
     location: 'Private Residence, Beverly Hills',
-    budget: { min: 4000, max: 6000 },
+    budget: { min: 332000, max: 498000 },
     guestCount: 30,
     requirements: ['Elegant presentation', 'Wine pairing', 'Sit-down dinner', 'Personalized menu'],
     client: {
@@ -89,7 +89,7 @@ export const mockJobs: Job[] = [
     date: '2024-06-08',
     time: '17:00',
     location: 'School Gymnasium, Chicago',
-    budget: { min: 3000, max: 5000 },
+    budget: { min: 249000, max: 415000 },
     guestCount: 100,
     requirements: ['Buffet style', 'Dietary variety', 'Casual atmosphere', 'Easy cleanup'],
     client: {
@@ -159,7 +159,7 @@ export const mockPackages: Package[] = [
     id: '1',
     name: 'Elegant Wedding Package',
     description: 'Complete wedding catering with appetizers, main course, and dessert. Perfect for 50-200 guests.',
-    price: 85,
+    price: 7000,
     pricePerPerson: true,
     includes: ['Passed appetizers', 'Plated dinner service', 'Wedding cake', 'Professional staff', 'Setup & cleanup'],
     minGuests: 50,
@@ -171,7 +171,7 @@ export const mockPackages: Package[] = [
     id: '2',
     name: 'Corporate Lunch',
     description: 'Professional corporate catering with healthy options and quick setup.',
-    price: 25,
+    price: 2100,
     pricePerPerson: true,
     includes: ['Buffet style', 'Dietary options', 'Quick setup', 'Professional presentation'],
     minGuests: 10,
@@ -182,7 +182,7 @@ export const mockPackages: Package[] = [
     id: '3',
     name: 'Birthday Bash',
     description: 'Fun and colorful birthday party catering with finger foods and desserts.',
-    price: 35,
+    price: 2900,
     pricePerPerson: true,
     includes: ['Finger foods', 'Birthday cake', 'Colorful presentation', 'Fun atmosphere'],
     minGuests: 20,
@@ -193,7 +193,7 @@ export const mockPackages: Package[] = [
     id: '4',
     name: 'Intimate Dinner',
     description: 'Romantic dinner for 2-10 people with personalized menu.',
-    price: 150,
+    price: 12500,
     pricePerPerson: false,
     includes: ['Personalized menu', 'Wine pairing', 'Private chef', 'Elegant setup'],
     minGuests: 2,
@@ -221,7 +221,7 @@ export const mockCaterers: Caterer[] = [
     badges: [mockBadges[0], mockBadges[1], mockBadges[2], mockBadges[3]],
     packages: mockPackages,
     availability: [],
-    minimumOrder: 500,
+    minimumOrder: 41500,
     responseTime: '1 hour',
     verified: true
   },
@@ -243,7 +243,7 @@ export const mockCaterers: Caterer[] = [
     badges: [mockBadges[0], mockBadges[1], mockBadges[4]],
     packages: mockPackages.slice(1, 3),
     availability: [],
-    minimumOrder: 300,
+    minimumOrder: 24900,
     responseTime: '2 hours',
     verified: true
   },
@@ -265,7 +265,7 @@ export const mockCaterers: Caterer[] = [
     badges: [mockBadges[0], mockBadges[1], mockBadges[5]],
     packages: [mockPackages[2], mockPackages[3]],
     availability: [],
-    minimumOrder: 400,
+    minimumOrder: 33200,
     responseTime: '30 minutes',
     verified: true
   },
@@ -287,7 +287,7 @@ export const mockCaterers: Caterer[] = [
     badges: [mockBadges[1], mockBadges[4]],
     packages: [mockPackages[1], mockPackages[2]],
     availability: [],
-    minimumOrder: 200,
+    minimumOrder: 16600,
     responseTime: '3 hours',
     verified: true
   }

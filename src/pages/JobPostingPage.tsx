@@ -250,7 +250,7 @@ const JobPostingPage = () => {
                 Minimum Budget *
               </label>
               <div className="relative">
-                <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
+                <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">₹</span>
                 <input
                   type="number"
                   value={formData.budgetMin}
@@ -268,7 +268,7 @@ const JobPostingPage = () => {
                 Maximum Budget
               </label>
               <div className="relative">
-                <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
+                <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">₹</span>
                 <input
                   type="number"
                   value={formData.budgetMax}
